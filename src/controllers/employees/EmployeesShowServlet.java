@@ -14,8 +14,11 @@ import models.Employee;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class EmployeesShowServlet
+ * 従業員の詳細ページを表示するサーブレット
+ * show.jspと対応
+ * リクエストスコープにあるidから、DB接続し詳細表示するレコードをjspに渡す
  */
+
 @WebServlet("/employees/show")
 public class EmployeesShowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +43,7 @@ public class EmployeesShowServlet extends HttpServlet {
 
 		request.setAttribute("employee", e);
 		request.setAttribute("_token", request.getSession().getId());
-
+		//フォワード
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/show.jsp");
 		rd.forward(request, response);
 	}

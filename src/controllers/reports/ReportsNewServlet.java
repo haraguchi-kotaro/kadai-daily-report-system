@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.Report;
 
 /**
- * Servlet implementation class ReportsNewServlet
+ * 日報の新規作成処理サーブレット
  */
 @WebServlet("/reports/new")
 public class ReportsNewServlet extends HttpServlet {

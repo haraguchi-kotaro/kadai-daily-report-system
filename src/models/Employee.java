@@ -12,8 +12,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 /*
  * 従業員情報を管理するクラス
- *
- *
+ *id:DB内の連番
+ *code:社員番号
+ *name:社員名
+ *password:パスワード
+ *admin_flag:管理者権限フラグ、管理者は1、一般は0
+ *created_at:登録日時
+ *updated_at:更新日時
+ *delete_flag:削除フラグ、生存は0、削除済は1
  *
  */
 
@@ -67,7 +73,7 @@ public class Employee {
 	private Integer delete_flag;
 
 
-
+//ゲッターセッター
 	public Integer getId() {
 		return id;
 	}

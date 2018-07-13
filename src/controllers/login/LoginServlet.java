@@ -15,7 +15,9 @@ import models.Employee;
 import utils.DBUtil;
 import utils.EncryptUtil;
 /**
- * Servlet implementation class LoginServlet
+ * ログイン処理用サーブレット
+ *
+ *
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -33,13 +35,14 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログイン失敗時の処理
 		request.setAttribute("_token", request.getSession().getId());
 		request.setAttribute("hasError", false);
 		if(request.getSession().getAttribute("flush")!= null){
 			request.setAttribute("flush", request.getSession().getAttribute("flush"));
 			request.getSession().removeAttribute("flush");
 		}
-
+		//フォワード
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/login/login.jsp");
 		rd.forward(request, response);
 	}
@@ -71,7 +74,7 @@ public class LoginServlet extends HttpServlet {
 			}catch(NoResultException ex){}
 
 			em.close();
-
+			//DBに従業員情報あれはeに格納されている
 			if(e != null){
 				check_result = true;
 			}
@@ -81,6 +84,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("_token", request.getSession().getId());
 			request.setAttribute("hasError", true);
 
+			//フォワード
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/login/login.jsp");
 			rd.forward(request, response);
 		}else{

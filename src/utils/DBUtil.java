@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 /*
  * DB接続関係
- *
+ *変数emf:エンティティマネージャーファクトリー
  */
 public class DBUtil {
 	private static final String PERSISTENCE_UNIT_NAME = "daily_report_system";

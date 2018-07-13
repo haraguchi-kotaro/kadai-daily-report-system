@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--
 new.jspとedit.jspの共通部分のjspファイル
+入力フォーム関係とフラッシュ表示処理あり
 
  -->
  <c:if test = "${errors != null}">

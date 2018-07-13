@@ -17,7 +17,8 @@ import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
 /**
- * Servlet implementation class EmployeesCreateServlet
+ * 従業員の新規登録処理
+ * 成功したらフラッシュとしてセッションに保存する。
  */
 @WebServlet("/employees/create")
 public class EmployeesCreateServlet extends HttpServlet {
@@ -35,12 +36,13 @@ public class EmployeesCreateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//直リンク防止処理？リクエストスコープに"_token"がなければ処理なし
 		String _token = (String)request.getParameter("_token");
 		if(_token != null && _token.equals(request.getSession().getId())){
 			EntityManager em = DBUtil.createEntityManager();
 
 			Employee e = new Employee();
-
+			//インスタンスにフォームから受け取った値を格納
 			e.setCode(request.getParameter("code"));
 			e.setName(request.getParameter("name"));
 			e.setPassword(
@@ -56,6 +58,7 @@ public class EmployeesCreateServlet extends HttpServlet {
 			e.setUpdated_at(currentTime);
 			e.setDelete_flag(0);
 
+			//入力内容のバリデート、エラーがあればエラー箇所格納しnew.jspに戻す
 			List<String> errors = EmployeeValidator.validate(e, true, true);
 			if(errors.size() > 0){
 				em.close();
@@ -65,6 +68,7 @@ public class EmployeesCreateServlet extends HttpServlet {
 				request.setAttribute("employee", e);
 				request.setAttribute("errors",errors);
 
+				//フォワード
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
 				rd.forward(request,response);
 			}else{

@@ -13,8 +13,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 /**
- * Application Lifecycle Listener implementation class PropertiesListener
- *
+ * パスワード暗号化関係
  */
 @WebListener
 public class PropertiesListener implements ServletContextListener {

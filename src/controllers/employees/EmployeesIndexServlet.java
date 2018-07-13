@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import models.Employee;
 import utils.DBUtil;
 /**
- * Servlet implementation class EmployeesIndexServlet
+ * 従業員一覧
+ * 	index.jspと対応するサーブレット
+ * ページネーション処理あり
  */
 @WebServlet("/employees/index")
 public class EmployeesIndexServlet extends HttpServlet {
@@ -56,7 +58,7 @@ public class EmployeesIndexServlet extends HttpServlet {
 			request.setAttribute("flush", request.getSession().getAttribute("flush"));
 			request.getSession().removeAttribute("flush");
 		}
-
+		//フォワード
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/index.jsp");
 		rd.forward(request,response);
 	}

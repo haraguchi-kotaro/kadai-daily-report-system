@@ -7,7 +7,12 @@ import javax.persistence.EntityManager;
 
 import models.Employee;
 import utils.DBUtil;
-
+/*
+ * 従業員管理関係のバリデーション
+ * ここでのcodeは社員番号
+ *
+ *
+ */
 public class EmployeeValidator {
 	public static List<String> validate(Employee e, Boolean code_duplicate_check_flag, Boolean password_check_flag){
 		List<String> errors = new ArrayList<String>();
@@ -33,7 +38,7 @@ public class EmployeeValidator {
 		if(code == null || code.equals("")){
 			return "社員番号を入力してください。";
 		}
-
+		//社員番号の被りをチェックする
 		if(code_duplicate_check_flag){
 			EntityManager em = DBUtil.createEntityManager();
 			long employees_count = (long)em.createNamedQuery("checkRegisteredCode",Long.class)

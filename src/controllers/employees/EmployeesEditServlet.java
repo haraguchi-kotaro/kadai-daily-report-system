@@ -14,7 +14,9 @@ import models.Employee;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class EmployeesEditServlet
+ * 従業員情報の更新処理
+ * リクエストスコープにあるidから、DB接続し詳細表示するレコードをjspに渡す
+ *edit.jspと対応
  */
 @WebServlet("/employees/edit")
 public class EmployeesEditServlet extends HttpServlet {

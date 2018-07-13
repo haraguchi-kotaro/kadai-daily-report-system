@@ -15,7 +15,7 @@ import models.Report;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsIndexServlet
+ * 自分の日報が一覧表示される処理を持つサーブレット
  */
 @WebServlet("/reports/index")
 public class ReportsIndexServlet extends HttpServlet {

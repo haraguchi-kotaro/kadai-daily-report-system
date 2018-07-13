@@ -18,7 +18,9 @@ import utils.DBUtil;
 import utils.EncryptUtil;
 
 /**
- * Servlet implementation class EmployeesUpdateServlet
+ * edit.jspで入力された情報を処理するサーブレット
+ *
+ *
  */
 @WebServlet("/employees/update")
 public class EmployeesUpdateServlet extends HttpServlet {
@@ -36,6 +38,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//直リンク防止処理？
 		String _token = (String)request.getParameter("_token");
 		if(_token != null && _token.equals(request.getSession().getId())){
 			EntityManager em = DBUtil.createEntityManager();

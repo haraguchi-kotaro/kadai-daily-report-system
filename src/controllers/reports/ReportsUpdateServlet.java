@@ -18,7 +18,7 @@ import models.validators.ReportValidator;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsUpdateServlet
+ * 実際の日報編集を受け持つサーブレット
  */
 @WebServlet("/reports/update")
 public class ReportsUpdateServlet extends HttpServlet {

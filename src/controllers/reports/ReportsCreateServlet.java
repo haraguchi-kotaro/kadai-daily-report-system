@@ -19,7 +19,7 @@ import models.validators.ReportValidator;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsCreateServlet
+ * 日報の新規作成処理
  */
 @WebServlet("/reports/create")
 public class ReportsCreateServlet extends HttpServlet {

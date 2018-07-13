@@ -15,7 +15,7 @@ import models.Report;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsEditServlet
+ * 日報の編集ページ
  */
 @WebServlet("/reports/edit")
 public class ReportsEditServlet extends HttpServlet {

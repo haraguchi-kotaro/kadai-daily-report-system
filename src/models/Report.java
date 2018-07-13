@@ -14,7 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+/*
+ * 日報情報を管理するクラス
+ *
+ */
 @Table(name = "reports")
 @NamedQueries({
     @NamedQuery(

@@ -14,7 +14,9 @@ import models.Employee;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class EmployeesDestroyServlet
+ * 従業員情報削除処理のサーブレット
+ * リクエストスコープ内のidで指定
+ *
  */
 @WebServlet("/employees/destroy")
 public class EmployeesDestroyServlet extends HttpServlet {

@@ -14,7 +14,7 @@ import models.Report;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsShowServlet
+ * 日報の詳細ページを表示させる処理
  */
 @WebServlet("/reports/show")
 public class ReportsShowServlet extends HttpServlet {

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Employee;
 /**
- * Servlet implementation class EmployeesNewServlet
+ * 新規登録のためのサーブレット
+ * リクエストスコープに"_token"という名前でIDを登録
+ *
  */
 @WebServlet("/employees/new")
 public class EmployeesNewServlet extends HttpServlet {
@@ -32,6 +34,7 @@ public class EmployeesNewServlet extends HttpServlet {
 		request.setAttribute("_token", request.getSession().getId());
 		request.setAttribute("employee", new Employee());
 
+		//フォワード
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
 		rd.forward(request, response);
 	}
